@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A EleMeSolutions ajuda indústrias portuguesas a reduzir custos operacionais identificando processos ineficientes e implementando soluções tecnológicas modernas — ERP, integrações, dashboards." />
+  <meta name="author" content="Lucas Gomes — EleMeSolutions" />
+  <meta property="og:title" content="EleMeSolutions — Redução de Custos Operacionais" />
+  <meta property="og:description" content="Identificamos ineficiências e implementamos soluções que eliminam processos manuais na sua indústria." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://elemesolutions.pt" />
+  <title>EleMeSolutions — Consultoria Operacional e Tecnológica</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Preconnect for Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ======================================================
+       NAVIGATION
+       ====================================================== -->
+  <header id="navbar" role="banner" aria-label="Navegação principal">
+    <nav class="nav-inner" aria-label="Menu principal">
+
+      <!-- Logo -->
+      <a href="#hero" class="nav-logo" aria-label="EleMeSolutions — início">
+        <img
+          src="assets/logo.svg"
+          alt="EleMeSolutions logótipo"
+          width="38"
+          height="38"
+          onerror="this.style.display='none'"
+        />
+        <span class="nav-logo-text">Ele<span>Me</span>Solutions</span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#como-funciona">Como Funciona</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li>
+          <a href="#contacto" class="btn-nav" aria-label="Fale connosco — ir para contacto">
+            Fale Connosco
+          </a>
+        </li>
+      </ul>
+
+      <!-- Hamburger (mobile) -->
+      <button
+        id="hamburger"
+        class="hamburger"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile nav overlay -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
+    <a href="#servicos">Serviços</a>
+    <a href="#como-funciona">Como Funciona</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#contacto" class="btn-primary" style="margin-top:1rem;">Fale Connosco</a>
+  </nav>
+
+
+  <main>
+
+    <!-- ====================================================
+         1. HERO
+         ==================================================== -->
+    <section id="hero" aria-labelledby="hero-heading">
+
+      <!-- Animated canvas background -->
+      <div class="hero-canvas-wrap" aria-hidden="true">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-gradient"></div>
+        <div class="hero-vignette"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-eyebrow" aria-hidden="true">
+          Consultoria Operacional &amp; Tecnológica
+        </div>
+
+        <h1 id="hero-heading" class="hero-title">
+          A Sua Operação Está a Perder<br />
+          Dinheiro em <em>Processos Manuais</em>
+        </h1>
+
+        <p class="hero-subtitle">
+          Identificamos ineficiências operacionais e implementamos soluções
+          tecnológicas que reduzem custos e eliminam processos manuais na sua
+          indústria.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contacto" class="btn-primary">
+            Agende uma Reunião
+            <!-- Arrow icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+          <a href="#servicos" class="btn-outline">Ver Serviços</a>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <div class="scroll-mouse">
+          <div class="scroll-dot"></div>
+        </div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+
+    <!-- ====================================================
+         2. PROBLEMA
+         ==================================================== -->
+    <section id="problema" class="section" aria-labelledby="problema-heading">
+      <div class="container">
+
+        <div class="problem-intro fade-up">
+          <span class="section-label">O Problema</span>
+          <h2 id="problema-heading" class="section-title">
+            O Problema Que Resolvemos
+          </h2>
+          <p class="section-subtitle">
+            A maioria das PME industriais portuguesas continua a operar com
+            ferramentas que não foram desenhadas para os seus processos.
+            O custo invisível acumula-se todos os dias.
+          </p>
+          <span class="gold-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="problem-cards">
+
+          <!-- Card 1 -->
+          <article class="problem-card fade-up stagger-1" aria-labelledby="prob-1-title">
+            <div class="problem-icon" aria-hidden="true">
+              <!-- Spreadsheet / table icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <line x1="3" y1="9"  x2="21" y2="9"/>
+                <line x1="3" y1="15" x2="21" y2="15"/>
+                <line x1="9" y1="3"  x2="9"  y2="21"/>
+              </svg>
+            </div>
+            <h3 id="prob-1-title">
+              Folhas de Cálculo a Controlar Processos Críticos
+            </h3>
+            <p>
+              Quando as suas operações dependem de folhas de cálculo — previsão
+              de procura, gestão de inventário, relatórios mensais — o risco é real.
+              Um erro de fórmula pode propagar-se através de semanas de decisões.
+              Não há controlo de versões, e a continuidade operacional depende de
+              uma pessoa saber como o ficheiro "realmente" funciona.
+            </p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="problem-card fade-up stagger-2" aria-labelledby="prob-2-title">
+            <div class="problem-icon" aria-hidden="true">
+              <!-- Arrows / data flow icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17 2l4 4-4 4"/>
+                <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                <path d="M7 22l-4-4 4-4"/>
+                <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+              </svg>
+            </div>
+            <h3 id="prob-2-title">
+              Introdução Manual de Dados Entre Sistemas
+            </h3>
+            <p>
+              Cada integração manual entre o seu ERP, folhas de cálculo e
+              ferramentas de front-office consome tempo e gera erros. Dados
+              entram errados, não chegam a tempo, ou existem em formatos
+              incompatíveis. Os seus operacionais estão a fazer trabalho de
+              secretária quando deveriam estar a gerir.
+            </p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="problem-card fade-up stagger-3" aria-labelledby="prob-3-title">
+            <div class="problem-icon" aria-hidden="true">
+              <!-- Eye-off / no visibility icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+            </div>
+            <h3 id="prob-3-title">
+              Zero Visibilidade Sobre Custos Reais
+            </h3>
+            <p>
+              Sem dados consolidados e em tempo real, as decisões são baseadas
+              em impressões, não em factos. Qual é a margem real por linha de
+              produção? Onde estão os gargalos? Sem respostas, continua a
+              otimizar no escuro.
+            </p>
+          </article>
+
+        </div><!-- /.problem-cards -->
+      </div>
+    </section>
+
+
+    <!-- ====================================================
+         3. SERVIÇOS
+         ==================================================== -->
+    <section id="servicos" class="section" aria-labelledby="servicos-heading">
+      <div class="container">
+
+        <div class="services-intro text-center fade-up">
+          <span class="section-label">O Que Fazemos</span>
+          <h2 id="servicos-heading" class="section-title">
+            Soluções Para Cada Fase da Transformação
+          </h2>
+          <p class="section-subtitle">
+            Da análise à implementação — trabalhamos em cada camada da
+            sua operação para garantir resultados mensuráveis.
+          </p>
+          <span class="gold-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- Service 1 -->
+          <article class="service-card fade-up stagger-1" aria-labelledby="srv-1-title">
+            <div class="service-number" aria-hidden="true">01</div>
+            <h3 id="srv-1-title">Diagnóstico de Processos</h3>
+            <p>
+              Mapeamos os seus workflows atuais, identificamos onde vivem os dados
+              e quantificamos o custo do status quo. O resultado é um relatório
+              claro que mostra exatamente o que está a falhar e porquê.
+            </p>
+            <span class="service-tag">Análise &amp; Estratégia</span>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="service-card fade-up stagger-2" aria-labelledby="srv-2-title">
+            <div class="service-number" aria-hidden="true">02</div>
+            <h3 id="srv-2-title">Soluções ERP</h3>
+            <p>
+              Não é uma implementação ERP genérica. É uma implementação pensada
+              para os seus processos específicos, configurada para remover
+              duplicação manual e dar-lhe rastreabilidade desde a encomenda
+              até à fatura.
+            </p>
+            <span class="service-tag">Implementação</span>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="service-card fade-up stagger-3" aria-labelledby="srv-3-title">
+            <div class="service-number" aria-hidden="true">03</div>
+            <h3 id="srv-3-title">Integração de Sistemas</h3>
+            <p>
+              Os seus dados não devem caminhar manualmente entre sistemas.
+              Construímos fluxos de integração automatizados que ligam o seu ERP,
+              dados de produção e plataformas de faturação num ecossistema coeso.
+            </p>
+            <span class="service-tag">Automação</span>
+          </article>
+
+          <!-- Service 4 -->
+          <article class="service-card fade-up stagger-4" aria-labelledby="srv-4-title">
+            <div class="service-number" aria-hidden="true">04</div>
+            <h3 id="srv-4-title">Dashboards em Tempo Real</h3>
+            <p>
+              Dashboards que respondem a questões reais: margens, eficiência,
+              gargalos, desvios — em linguagem que os seus diretores entendem,
+              não em jargão de dados. Acessíveis em qualquer dispositivo.
+            </p>
+            <span class="service-tag">Visibilidade &amp; Dados</span>
+          </article>
+
+        </div><!-- /.services-grid -->
+      </div>
+    </section>
+
+
+    <!-- ====================================================
+         4. TRANSFORMAÇÕES
+         ==================================================== -->
+    <section id="transformacoes" class="section" aria-labelledby="transf-heading">
+      <div class="container">
+
+        <div class="transformations-intro fade-up">
+          <span class="section-label">Resultados Concretos</span>
+          <h2 id="transf-heading" class="section-title">
+            Transformações Típicas
+          </h2>
+          <p class="section-subtitle">
+            Exemplos reais do impacto que as nossas soluções têm na operação
+            dos nossos clientes.
+          </p>
+          <span class="gold-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="transformations-grid">
+
+          <!-- Transformation 1 -->
+          <article class="transformation-card fade-up stagger-1">
+            <div class="transform-before">
+              <p class="transform-label transform-label--before">Antes</p>
+              <p>12 folhas de cálculo a controlar a produção, espalhadas por
+                 vários computadores e partilhadas por email.</p>
+            </div>
+            <div class="transform-arrow" aria-hidden="true">
+              <div class="arrow-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <line x1="12" y1="5"  x2="12" y2="19"/>
+                  <polyline points="19 12 12 19 5 12"/>
+                </svg>
+              </div>
+            </div>
+            <div class="transform-after">
+              <p class="transform-label transform-label--after">Depois</p>
+              <p>ERP integrado com dashboard em tempo real — uma única fonte
+                 de verdade, acessível por toda a equipa.</p>
+            </div>
+          </article>
+
+          <!-- Transformation 2 -->
+          <article class="transformation-card fade-up stagger-2">
+            <div class="transform-before">
+              <p class="transform-label transform-label--before">Antes</p>
+              <p>Processamento manual de encomendas: 4 horas por dia, com erros
+                 frequentes e retrabalho constante.</p>
+            </div>
+            <div class="transform-arrow" aria-hidden="true">
+              <div class="arrow-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <line x1="12" y1="5"  x2="12" y2="19"/>
+                  <polyline points="19 12 12 19 5 12"/>
+                </svg>
+              </div>
+            </div>
+            <div class="transform-after">
+              <p class="transform-label transform-label--after">Depois</p>
+              <p>Integração automatizada: 15 minutos por dia. A equipa libertou
+                 tempo para trabalho de valor acrescentado.</p>
+            </div>
+          </article>
+
+          <!-- Transformation 3 -->
+          <article class="transformation-card fade-up stagger-3">
+            <div class="transform-before">
+              <p class="transform-label transform-label--before">Antes</p>
+              <p>Decisões estratégicas baseadas em intuição e relatórios
+                 mensais com dados desatualizados.</p>
+            </div>
+            <div class="transform-arrow" aria-hidden="true">
+              <div class="arrow-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <line x1="12" y1="5"  x2="12" y2="19"/>
+                  <polyline points="19 12 12 19 5 12"/>
+                </svg>
+              </div>
+            </div>
+            <div class="transform-after">
+              <p class="transform-label transform-label--after">Depois</p>
+              <p>Dashboards com dados consolidados e atualizados — decisões
+                 baseadas em factos, não em suposições.</p>
+            </div>
+          </article>
+
+        </div><!-- /.transformations-grid -->
+      </div>
+    </section>
+
+
+    <!-- ====================================================
+         5. COMO FUNCIONA
+         ==================================================== -->
+    <section id="como-funciona" class="section" aria-labelledby="how-heading">
+      <div class="container">
+
+        <div class="how-intro text-center fade-up">
+          <span class="section-label">O Processo</span>
+          <h2 id="how-heading" class="section-title">
+            Como Funciona
+          </h2>
+          <p class="section-subtitle">
+            Um processo simples, transparente e sem jargão técnico.
+            O nosso objectivo é que sinta controlo em cada etapa.
+          </p>
+          <span class="gold-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="steps-container" role="list">
+
+          <!-- Step 1 -->
+          <div class="step fade-up stagger-1" role="listitem">
+            <div class="step-circle" aria-hidden="true">
+              <span class="step-num">1</span>
+            </div>
+            <div class="step-body">
+              <h3>Reunião de Descoberta</h3>
+            <p>
+                Sentamo-nos consigo e com as pessoas que sabem como as coisas
+                realmente funcionam. Que sistemas tem? Como comunicam? Onde
+                estão os gargalos? Esta reunião é gratuita e sem compromisso.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step fade-up stagger-2" role="listitem">
+            <div class="step-circle" aria-hidden="true">
+              <span class="step-num">2</span>
+            </div>
+            <div class="step-body">
+              <h3>Relatório de Diagnóstico</h3>
+            <p>
+                Analisamos o que ouvimos, validamos com dados, e apresentamos
+                um relatório claro. Aqui está o problema. Aqui está o custo.
+                Aqui estão as opções para resolver. Sem surpresas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step fade-up stagger-3" role="listitem">
+            <div class="step-circle" aria-hidden="true">
+              <span class="step-num">3</span>
+            </div>
+            <div class="step-body">
+              <h3>Implementação</h3>
+            <p>
+                Começamos pequeno. Uma integração de cada vez. Validamos cada
+                passo consigo, treinamos a sua equipa, e só progredimos quando
+                tem confiança em que funciona. Nada de "big bang".
+              </p>
+            </div>
+          </div>
+
+        </div><!-- /.steps-container -->
+      </div>
+    </section>
+
+
+    <!-- ====================================================
+         6. SOBRE
+         ==================================================== -->
+    <section id="sobre" class="section" aria-labelledby="sobre-heading">
+      <div class="container">
+
+        <!-- Intro -->
+        <div class="about-intro text-center fade-up">
+          <span class="section-label">Sobre</span>
+          <h2 id="sobre-heading" class="section-title">
+            Tecnologia e Direito.<br />A Combinação Que Faltava.
+          </h2>
+          <p class="section-subtitle">
+            A EleMeSolutions une engenharia de dados e direito digital para
+            oferecer às PME industriais portuguesas transformação tecnológica
+            com segurança jurídica. Não vendemos tecnologia cara — vendemos
+            clareza, automatização e conformidade.
+          </p>
+          <span class="gold-line" aria-hidden="true"></span>
+        </div>
+
+        <!-- Team profiles -->
+        <div class="team-grid">
+
+          <!-- Lucas -->
+          <article class="team-card fade-up stagger-1">
+            <div class="team-photo-wrap">
+              <img
+                src="assets/lucas.jpg"
+                alt="Lucas Gomes"
+                class="team-photo"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+              />
+              <div class="team-photo-placeholder" aria-hidden="true">LG</div>
+            </div>
+            <h3>Lucas Gomes</h3>
+            <p class="team-role">Engenharia de Dados &amp; Operações</p>
+            <p class="team-bio">
+              Senior Data Scientist e Data Engineer com experiência em plataformas
+              de dados críticas, orquestração de pipelines ML e integrações ERP
+              em ambiente cloud. Especializado em identificar ineficiências
+              operacionais e transformá-las em processos automatizados e mensuráveis.
+            </p>
+            <div class="tech-badges team-badges" role="list">
+              <span class="badge" role="listitem">Python</span>
+              <span class="badge" role="listitem">Google Cloud</span>
+              <span class="badge" role="listitem">BigQuery</span>
+              <span class="badge" role="listitem">Airflow</span>
+              <span class="badge" role="listitem">ERP Integration</span>
+              <span class="badge" role="listitem">SQL</span>
+            </div>
+          </article>
+
+          <!-- Barbara -->
+          <article class="team-card fade-up stagger-2">
+            <div class="team-photo-wrap">
+              <img
+                src="assets/barbara.jpg"
+                alt="Barbara Castro"
+                class="team-photo"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+              />
+              <div class="team-photo-placeholder" aria-hidden="true">BC</div>
+            </div>
+            <h3>Barbara Castro</h3>
+            <p class="team-role">Direito Digital &amp; Conformidade</p>
+            <p class="team-bio">
+              Licenciada em Direito e pós-graduada em Direito Digital. Garante
+              que cada transformação tecnológica cumpre as exigências legais —
+              RGPD, proteção de dados, contratos tecnológicos e conformidade
+              regulatória. Porque digitalizar sem enquadramento jurídico é um
+              risco que nenhuma empresa deve correr.
+            </p>
+            <div class="tech-badges team-badges" role="list">
+              <span class="badge" role="listitem">RGPD</span>
+              <span class="badge" role="listitem">Proteção de Dados</span>
+              <span class="badge" role="listitem">Contratos Tecnológicos</span>
+              <span class="badge" role="listitem">Compliance Digital</span>
+              <span class="badge" role="listitem">Direito Empresarial</span>
+            </div>
+          </article>
+
+        </div><!-- /.team-grid -->
+
+        <!-- Value stats -->
+        <div class="about-stats-row fade-up stagger-3">
+          <div class="about-stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">
+              Foco em resultados mensuráveis e conformidade legal desde o primeiro dia.
+            </div>
+          </div>
+          <div class="about-stat">
+            <div class="stat-number">PME</div>
+            <div class="stat-label">
+              Especialistas no sector industrial português — entendemos os
+              constrangimentos, orçamento e cultura de trabalho.
+            </div>
+          </div>
+          <div class="about-stat">
+            <div class="stat-number">RGPD</div>
+            <div class="stat-label">
+              Cada implementação é desenhada com conformidade jurídica integrada,
+              não como um afterthought.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================
+         7. CONTACTO / CTA
+         ==================================================== -->
+    <section id="contacto" class="section" aria-labelledby="contacto-heading">
+      <div class="contact-bg-glow" aria-hidden="true"></div>
+      <div class="container">
+
+        <div class="contact-inner">
+
+          <!-- Left: CTA text + info -->
+          <div class="contact-left fade-up">
+            <span class="section-label">Contacto</span>
+            <h2 id="contacto-heading" class="section-title">
+              Pronto Para<br />Reduzir Custos?
+            </h2>
+
+            <p class="section-subtitle">
+              O primeiro passo é uma conversa. Sem compromisso, sem custos.
+              Vamos identificar onde a sua operação pode melhorar.
+            </p>
+
+            <span class="gold-line" aria-hidden="true"></span>
+
+            <div class="contact-info" style="margin-top:2.5rem;">
+
+              <div class="contact-item">
+                <div class="contact-item-icon" aria-hidden="true">
+                  <!-- Email icon -->
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
+                <div class="contact-item-text">
+                  <span>Email</span>
+                  <a href="mailto:lucasgomes@elemesolutions.pt">
+                    lucasgomes@elemesolutions.pt
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon" aria-hidden="true">
+                  <!-- Phone icon -->
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.29h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </div>
+                <div class="contact-item-text">
+                  <span>Telefone / WhatsApp</span>
+                  <a href="https://wa.me/351935433487" target="_blank" rel="noopener noreferrer">+351 935 433 487</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon" aria-hidden="true">
+                  <!-- Globe icon -->
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2"  y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                  </svg>
+                </div>
+                <div class="contact-item-text">
+                  <span>Website</span>
+                  <a
+                    href="https://elemesolutions.pt"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    elemesolutions.pt
+                  </a>
+                </div>
+              </div>
+
+            </div><!-- /.contact-info -->
+
+            <a
+              href="mailto:lucasgomes@elemesolutions.pt?subject=Pedido%20de%20contacto"
+              class="btn-primary"
+              style="margin-top:0.5rem;"
+            >
+              Enviar Mensagem
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Right: Contact form -->
+          <div class="fade-up stagger-2">
+            <form
+              id="contact-form"
+              class="contact-form"
+              novalidate
+              aria-label="Formulário de contacto"
+            >
+              <div class="form-group">
+                <label for="form-name">Nome</label>
+                <input
+                  type="text"
+                  id="form-name"
+                  name="name"
+                  placeholder="O seu nome"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="form-email">Email</label>
+                <input
+                  type="email"
+                  id="form-email"
+                  name="email"
+                  placeholder="o.seu@email.pt"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="form-message">Mensagem</label>
+                <textarea
+                  id="form-message"
+                  name="message"
+                  placeholder="Descreva brevemente a sua operação e os principais desafios que enfrenta..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary form-submit">
+                Enviar Mensagem
+              </button>
+            </form>
+          </div>
+
+        </div><!-- /.contact-inner -->
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ======================================================
+       FOOTER
+       ====================================================== -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          Ele<span>Me</span>Solutions
+        </div>
+
+        <nav class="footer-links" aria-label="Navegação rodapé">
+          <a href="#servicos">Serviços</a>
+          <a href="#como-funciona">Como Funciona</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+      </div>
+
+      <p class="footer-copy">
+        &copy; 2026 EleMeSolutions. Todos os direitos reservados.
+        &nbsp;&mdash;&nbsp; elemesolutions.pt
+      </p>
+    </div>
+  </footer>
+
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
