@@ -223,7 +223,7 @@ button {
 }
 
 #navbar.scrolled {
-    background: rgba(11, 29, 51, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 1px 0 var(--border);
