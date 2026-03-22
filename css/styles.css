@@ -1,6 +1,6 @@
 /* ============================================================
    ElemeSolutions — styles.css
-   Design system: navy blue background, orange accent, white text, serif headings
+   Design system: white background, orange accent, navy blue text, serif headings
    ============================================================ */
 
 /* ----------------------------------------------------------
@@ -15,18 +15,18 @@
 }
 
 :root {
-    --bg: #0B1D33;
-    --bg-card: #0F2640;
-    --bg-card-alt: #0D2035;
-    --border: #1A3654;
-    --border-hover: #24476A;
-    --gold: #F47B20;
-    --gold-light: #FF9B4A;
+    --bg: #ffffff;
+    --bg-card: #f5f5f5;
+    --bg-card-alt: #efefef;
+    --border: #dddddd;
+    --border-hover: #cccccc;
+    --gold: #f47b20;
+    --gold-light: #ff9b4a;
     --gold-dim: rgba(244, 123, 32, 0.15);
     --gold-glow: rgba(244, 123, 32, 0.25);
-    --white: #ffffff;
-    --muted: #8BA3BE;
-    --muted-light: #A3B8CE;
+    --text: #0b1d33;
+    --muted: #6b7c8f;
+    --muted-light: #8ba3be;
     --font-serif: "Times New Roman", Times, serif;
     --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
     --nav-height: 72px;
@@ -44,7 +44,7 @@ html {
 
 body {
     background-color: var(--bg);
-    color: var(--white);
+    color: var(--text);
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.7;
@@ -97,7 +97,7 @@ button {
     font-size: clamp(1.9rem, 4vw, 2.8rem);
     font-weight: 400;
     line-height: 1.2;
-    color: var(--white);
+    color: var(--text);
     margin-bottom: 1.2rem;
 }
 
@@ -257,7 +257,7 @@ button {
     font-family: var(--font-serif);
     font-size: 1.2rem;
     font-weight: 400;
-    color: var(--white);
+    color: var(--text);
     letter-spacing: 0.02em;
 }
 
@@ -292,7 +292,7 @@ button {
 }
 
 .nav-links a:hover {
-    color: var(--white);
+    color: var(--text);
 }
 
 .nav-links a:hover::after {
@@ -301,17 +301,19 @@ button {
 
 /* Nav CTA button — needs .nav-links prefix to beat .nav-links a specificity */
 .nav-links .btn-nav {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.55rem 1.25rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: #fff;
-  background: var(--gold);
-  border: none;
-  border-radius: var(--radius);
-  transition: background var(--transition), transform var(--transition);
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #fff;
+    background: var(--gold);
+    border: none;
+    border-radius: var(--radius);
+    transition:
+        background var(--transition),
+        transform var(--transition);
 }
 .nav-links .btn-nav:hover {
     background: var(--gold-light);
@@ -335,7 +337,7 @@ button {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--white);
+    background: var(--text);
     transition:
         transform var(--transition),
         opacity var(--transition);
@@ -533,7 +535,7 @@ button {
     font-size: clamp(2.2rem, 6vw, 4rem);
     font-weight: 400;
     line-height: 1.13;
-    color: var(--white);
+    color: var(--text);
     margin-bottom: 1.75rem;
     opacity: 0;
     animation: fadeDown 0.9s 0.4s forwards;
@@ -714,7 +716,7 @@ button {
     font-family: var(--font-serif);
     font-size: 1.2rem;
     font-weight: 400;
-    color: var(--white);
+    color: var(--text);
     margin-bottom: 0.875rem;
     line-height: 1.35;
 }
@@ -807,7 +809,7 @@ button {
     font-family: var(--font-serif);
     font-size: 1.35rem;
     font-weight: 400;
-    color: var(--white);
+    color: var(--text);
     margin-bottom: 0.875rem;
     line-height: 1.3;
 }
@@ -945,7 +947,7 @@ button {
 
 .transform-after p {
     font-size: 0.95rem;
-    color: var(--white);
+    color: var(--text);
     line-height: 1.6;
     font-weight: 500;
 }
@@ -1034,7 +1036,7 @@ button {
     font-family: var(--font-serif);
     font-size: 1.2rem;
     font-weight: 400;
-    color: var(--white);
+    color: var(--text);
     margin-bottom: 0.875rem;
     line-height: 1.3;
 }
@@ -1085,7 +1087,9 @@ button {
     border-radius: var(--radius-lg);
     padding: clamp(2rem, 3.5vw, 2.75rem);
     text-align: center;
-    transition: border-color var(--transition), transform var(--transition);
+    transition:
+        border-color var(--transition),
+        transform var(--transition);
 }
 
 .team-card:hover {
@@ -1138,7 +1142,7 @@ button {
     font-family: var(--font-serif);
     font-size: 1.35rem;
     font-weight: 400;
-    color: var(--white);
+    color: var(--text);
     margin-bottom: 0.3rem;
 }
 
@@ -1326,7 +1330,7 @@ button {
 .contact-item-text a,
 .contact-item-text span:last-child {
     font-size: 0.95rem;
-    color: var(--white);
+    color: var(--text);
     transition: color var(--transition);
 }
 
@@ -1365,7 +1369,7 @@ button {
     padding: 0.75rem 1rem;
     font-family: var(--font-sans);
     font-size: 0.925rem;
-    color: var(--white);
+    color: var(--text);
     transition:
         border-color var(--transition),
         box-shadow var(--transition);
