@@ -1,4 +1,4 @@
-# EleMeSolutions — Landing Page Copy (PT-PT)
+# Eleme Solutions — Landing Page Copy (PT-PT)
 
 ## 1. HERO SECTION
 
@@ -6,7 +6,7 @@
 Os seus processos críticos merecem mais do que folhas de cálculo.
 
 **Subheadline:**
-EleMeSolutions integra os seus sistemas desconectados, automatiza a entrada manual de dados, e dá-lhe visibilidade real sobre o que está a acontecer no seu negócio.
+Eleme Solutions integra os seus sistemas desconectados, automatiza a entrada manual de dados, e dá-lhe visibilidade real sobre o que está a acontecer no seu negócio.
 
 **CTA Button Text:**
 Agendar Diagnóstico Gratuito
@@ -106,11 +106,11 @@ Se decidir avançar, começamos pequeno. Uma integração de cada vez. Um dashbo
 ## 6. ABOUT SECTION
 
 **Section Title:**
-Sobre EleMeSolutions
+Sobre Eleme Solutions
 
 **Bio Paragraph:**
 
-EleMeSolutions foi fundada por Lucas Gomes, Senior Data Scientist e Data Engineer com +10 anos de experiência em plataformas de dados críticas, orquestração de pipelines ML, e integrações ERP complexas em GCP. Trabalhou com equipas de operações industriais, e aprendeu a diferença entre solução tecnicamente elegante e solução que resolve realmente o problema. EleMeSolutions não vende tecnologia cara — vende clareza, automatização, e o tempo que os seus operacionais ganham de volta.
+Eleme Solutions foi fundada por Lucas Gomes, Senior Data Scientist e Data Engineer com +10 anos de experiência em plataformas de dados críticas, orquestração de pipelines ML, e integrações ERP complexas em GCP. Trabalhou com equipas de operações industriais, e aprendeu a diferença entre solução tecnicamente elegante e solução que resolve realmente o problema. Eleme Solutions não vende tecnologia cara — vende clareza, automatização, e o tempo que os seus operacionais ganham de volta.
 
 **Technical Expertise Areas:**
 - Arquitetura e integração de sistemas ERP (SAP, Navision, Primavera)

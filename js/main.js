@@ -1,5 +1,5 @@
 /* ============================================================
-   EleMeSolutions — main.js
+   Eleme Solutions — main.js
    Handles: navbar scroll, scroll animations, mobile menu,
             hero canvas, smooth scroll, contact form
    ============================================================ */
