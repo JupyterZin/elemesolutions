@@ -143,14 +143,15 @@
   }
 
   const ctx = canvas.getContext('2d');
-  const GOLD = '#C9A84C';
-  const GOLD_DIM = 'rgba(201, 168, 76, ';
+  const ORANGE = '#F47B20';
+  const ORANGE_DIM = 'rgba(244, 123, 32, ';
+  const BLUE_DIM = 'rgba(37, 99, 235, ';
 
   let width, height, animId;
   let nodes = [];
   let lines = [];
 
-  const NODE_COUNT_BASE = 35;
+  const NODE_COUNT_BASE = 45;
 
   function resize() {
     width  = canvas.offsetWidth;
@@ -172,8 +173,8 @@
         y:  rand(0, height),
         vx: rand(-0.18, 0.18),
         vy: rand(-0.12, 0.12),
-        r:  rand(1.2, 2.5),
-        opacity: rand(0.3, 0.8)
+        r:  rand(1.5, 3.0),
+        opacity: rand(0.4, 0.9)
       };
     });
   }
@@ -209,22 +210,24 @@
 
     buildLines();
 
-    // Draw connections
+    // Draw connections (mix of orange and blue lines)
     lines.forEach(function(l) {
-      const alpha = (1 - l.dist / l.max) * 0.35;
+      const alpha = (1 - l.dist / l.max) * 0.45;
+      const colorDim = (l.a + l.b) % 3 === 0 ? BLUE_DIM : ORANGE_DIM;
       ctx.beginPath();
-      ctx.strokeStyle = GOLD_DIM + alpha + ')';
-      ctx.lineWidth = 0.6;
+      ctx.strokeStyle = colorDim + alpha + ')';
+      ctx.lineWidth = 0.7;
       ctx.moveTo(nodes[l.a].x, nodes[l.a].y);
       ctx.lineTo(nodes[l.b].x, nodes[l.b].y);
       ctx.stroke();
     });
 
-    // Draw nodes
-    nodes.forEach(function(n) {
+    // Draw nodes (mix of orange and blue dots)
+    nodes.forEach(function(n, i) {
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-      ctx.fillStyle = GOLD_DIM + n.opacity + ')';
+      const colorDim = i % 3 === 0 ? BLUE_DIM : ORANGE_DIM;
+      ctx.fillStyle = colorDim + n.opacity + ')';
       ctx.fill();
     });
 
@@ -237,7 +240,7 @@
 
   function drawGrid() {
     const spacing = 80;
-    ctx.strokeStyle = 'rgba(201, 168, 76, 0.03)';
+    ctx.strokeStyle = 'rgba(37, 99, 235, 0.04)';
     ctx.lineWidth = 1;
 
     for (let x = 0; x <= width; x += spacing) {
@@ -324,7 +327,7 @@
     msg.style.cssText =
       'margin-top: 1rem; font-size: 0.875rem; padding: 0.75rem 1rem; border-radius: 4px; ' +
       (type === 'success'
-        ? 'color: #C9A84C; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3);'
+        ? 'color: #F47B20; background: rgba(244,123,32,0.1); border: 1px solid rgba(244,123,32,0.3);'
         : 'color: #e05555; background: rgba(224,85,85,0.1); border: 1px solid rgba(224,85,85,0.3);');
   }
 })();

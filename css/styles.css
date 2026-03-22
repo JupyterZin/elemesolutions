@@ -1,6 +1,6 @@
 /* ============================================================
    ElemeSolutions — styles.css
-   Design system: black background, gold accent, serif headings
+   Design system: navy blue background, orange accent, white text, serif headings
    ============================================================ */
 
 /* ----------------------------------------------------------
@@ -15,18 +15,18 @@
 }
 
 :root {
-    --bg: #0a0a0a;
-    --bg-card: #111111;
-    --bg-card-alt: #141414;
-    --border: #1e1e1e;
-    --border-hover: #2a2a2a;
-    --gold: #c9a84c;
-    --gold-light: #e0bc6a;
-    --gold-dim: rgba(201, 168, 76, 0.15);
-    --gold-glow: rgba(201, 168, 76, 0.25);
+    --bg: #0B1D33;
+    --bg-card: #0F2640;
+    --bg-card-alt: #0D2035;
+    --border: #1A3654;
+    --border-hover: #24476A;
+    --gold: #F47B20;
+    --gold-light: #FF9B4A;
+    --gold-dim: rgba(244, 123, 32, 0.15);
+    --gold-glow: rgba(244, 123, 32, 0.25);
     --white: #ffffff;
-    --muted: #999999;
-    --muted-light: #aaaaaa;
+    --muted: #8BA3BE;
+    --muted-light: #A3B8CE;
     --font-serif: "Times New Roman", Times, serif;
     --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
     --nav-height: 72px;
@@ -55,7 +55,7 @@ body {
 
 ::selection {
     background: var(--gold);
-    color: #000;
+    color: #fff;
 }
 
 img,
@@ -223,7 +223,7 @@ button {
 }
 
 #navbar.scrolled {
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(11, 29, 51, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 1px 0 var(--border);
@@ -307,7 +307,7 @@ button {
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #000;
+  color: #fff;
   background: var(--gold);
   border: none;
   border-radius: var(--radius);
@@ -315,7 +315,7 @@ button {
 }
 .nav-links .btn-nav:hover {
     background: var(--gold-light);
-    color: #000;
+    color: #fff;
     transform: translateY(-1px);
 }
 
@@ -361,7 +361,7 @@ button {
     position: fixed;
     inset: 0;
     z-index: 999;
-    background: rgba(10, 10, 10, 0.98);
+    background: rgba(11, 29, 51, 0.98);
     backdrop-filter: blur(16px);
     flex-direction: column;
     align-items: center;
@@ -401,7 +401,7 @@ button {
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: #000;
+    color: #fff;
     background: var(--gold);
     border: none;
     border-radius: var(--radius);
@@ -414,8 +414,9 @@ button {
 
 .btn-primary:hover {
     background: var(--gold-light);
+    color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+    box-shadow: 0 8px 30px rgba(244, 123, 32, 0.3);
 }
 
 .btn-outline {
@@ -441,7 +442,7 @@ button {
 
 .btn-outline:hover {
     background: var(--gold);
-    color: #000;
+    color: #fff;
     transform: translateY(-2px);
 }
 
@@ -470,7 +471,7 @@ button {
     inset: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.35;
+    opacity: 0.55;
 }
 
 .hero-gradient {
@@ -478,7 +479,8 @@ button {
     inset: 0;
     background: radial-gradient(
         ellipse 80% 60% at 50% 40%,
-        rgba(201, 168, 76, 0.06) 0%,
+        rgba(244, 123, 32, 0.08) 0%,
+        rgba(37, 99, 235, 0.04) 40%,
         transparent 70%
     );
 }
@@ -489,7 +491,7 @@ button {
     background: radial-gradient(
         ellipse at center,
         transparent 40%,
-        rgba(10, 10, 10, 0.5) 100%
+        rgba(11, 29, 51, 0.6) 100%
     );
 }
 
@@ -695,7 +697,7 @@ button {
 }
 
 .problem-card:hover .problem-icon {
-    background: rgba(201, 168, 76, 0.22);
+    background: rgba(244, 123, 32, 0.22);
 }
 
 .problem-icon svg {
@@ -924,7 +926,7 @@ button {
 }
 
 .transformation-card:hover .arrow-icon {
-    background: rgba(201, 168, 76, 0.25);
+    background: rgba(244, 123, 32, 0.25);
 }
 
 .arrow-icon svg {
@@ -1253,7 +1255,7 @@ button {
     height: 800px;
     background: radial-gradient(
         circle,
-        rgba(201, 168, 76, 0.04) 0%,
+        rgba(244, 123, 32, 0.06) 0%,
         transparent 70%
     );
     pointer-events: none;
@@ -1379,7 +1381,7 @@ button {
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+    box-shadow: 0 0 0 3px rgba(244, 123, 32, 0.1);
 }
 
 .form-group textarea {

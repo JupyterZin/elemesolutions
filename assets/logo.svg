@@ -1,9 +1,13 @@
 <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#D4B85A"/>
-      <stop offset="50%" stop-color="#C9A84C"/>
-      <stop offset="100%" stop-color="#B8943F"/>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9B4A"/>
+      <stop offset="50%" stop-color="#F47B20"/>
+      <stop offset="100%" stop-color="#D96A15"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#2563EB"/>
     </linearGradient>
     <!-- Clip for the decorative curved cutout in the L -->
     <clipPath id="lCut">
@@ -17,56 +21,56 @@
   <g transform="translate(28, 16)">
     <!--
       L — Bold weight serif letterform with curved interior cutout
-      The L is heavy, commanding, with a leaf-like negative space curve
+      Uses orange gradient
     -->
     <g clip-path="url(#lCut)">
       <!-- L vertical stem — bold -->
-      <rect x="30" y="18" width="50" height="150" fill="url(#goldGrad)"/>
+      <rect x="30" y="18" width="50" height="150" fill="url(#orangeGrad)"/>
       <!-- L top serif — left extension -->
-      <rect x="18" y="18" width="22" height="6" fill="url(#goldGrad)"/>
+      <rect x="18" y="18" width="22" height="6" fill="url(#orangeGrad)"/>
       <!-- L top serif — right small -->
-      <rect x="80" y="18" width="10" height="6" fill="url(#goldGrad)"/>
+      <rect x="80" y="18" width="10" height="6" fill="url(#orangeGrad)"/>
     </g>
 
     <!-- L foot (horizontal bar) — extends right to connect toward M -->
-    <rect x="30" y="162" width="130" height="6" fill="url(#goldGrad)"/>
+    <rect x="30" y="162" width="130" height="6" fill="url(#orangeGrad)"/>
     <!-- L bottom-left serif -->
-    <rect x="18" y="156" width="18" height="12" fill="url(#goldGrad)"/>
+    <rect x="18" y="156" width="18" height="12" fill="url(#orangeGrad)"/>
     <!-- L foot right serif tick -->
-    <rect x="155" y="156" width="8" height="6" fill="url(#goldGrad)"/>
+    <rect x="155" y="156" width="8" height="6" fill="url(#orangeGrad)"/>
 
     <!-- Curved cutout overlay — the signature leaf/wave shape inside the L -->
     <path
       d="M 80 68 Q 80 155, 148 162 L 80 162 Z"
-      fill="url(#goldGrad)"
+      fill="url(#orangeGrad)"
       opacity="0.92"
     />
 
     <!--
       M — Thin/hairline weight serif letterform
-      The contrast with the bold L creates the luxury editorial feel
+      Uses blue for contrast with the orange L
     -->
     <!-- M first leg — thin -->
-    <rect x="160" y="18" width="3.5" height="150" fill="#C9A84C"/>
+    <rect x="160" y="18" width="3.5" height="150" fill="#2563EB"/>
     <!-- M first leg top serif left -->
-    <rect x="150" y="18" width="18" height="5" fill="#C9A84C"/>
+    <rect x="150" y="18" width="18" height="5" fill="#2563EB"/>
     <!-- M first leg bottom serif -->
-    <rect x="150" y="162" width="18" height="5" fill="#C9A84C"/>
+    <rect x="150" y="162" width="18" height="5" fill="#2563EB"/>
 
     <!-- M left diagonal — thin -->
-    <polygon points="163.5,23 167,23 218,155 214.5,155" fill="#C9A84C"/>
+    <polygon points="163.5,23 167,23 218,155 214.5,155" fill="#2563EB"/>
 
     <!-- M right diagonal — thin -->
-    <polygon points="214.5,155 218,155 269,23 265.5,23" fill="#C9A84C"/>
+    <polygon points="214.5,155 218,155 269,23 265.5,23" fill="#2563EB"/>
 
     <!-- M center point — small diamond accent where diagonals meet -->
-    <polygon points="214,152 218,162 222,152 218,142" fill="#C9A84C" opacity="0.6"/>
+    <polygon points="214,152 218,162 222,152 218,142" fill="#2563EB" opacity="0.6"/>
 
     <!-- M last leg — thin -->
-    <rect x="265.5" y="18" width="3.5" height="150" fill="#C9A84C"/>
+    <rect x="265.5" y="18" width="3.5" height="150" fill="#2563EB"/>
     <!-- M last leg top serif -->
-    <rect x="261" y="18" width="18" height="5" fill="#C9A84C"/>
+    <rect x="261" y="18" width="18" height="5" fill="#2563EB"/>
     <!-- M last leg bottom serif -->
-    <rect x="261" y="162" width="18" height="5" fill="#C9A84C"/>
+    <rect x="261" y="162" width="18" height="5" fill="#2563EB"/>
   </g>
 </svg>
