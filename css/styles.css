@@ -1887,7 +1887,7 @@ footer {
     align-items: center;
     justify-content: space-between;
     padding: 0.6rem 0.75rem;
-    background: var(--bg);
+    background: var(--text);
     color: #fff;
     font-size: 0.7rem;
 }
@@ -1972,7 +1972,7 @@ footer {
 
 .mock-dashboard__bar {
     flex: 1;
-    background: var(--bg);
+    background: var(--text);
     border-radius: 2px 2px 0 0;
     min-height: 5px;
 }
@@ -2122,7 +2122,7 @@ footer {
 
 .mock-kpi__header {
     padding: 0.5rem 0.75rem;
-    background: var(--bg);
+    background: var(--text);
     color: #fff;
     font-size: 0.7rem;
     font-weight: 600;
@@ -2146,7 +2146,7 @@ footer {
 .mock-kpi__card-value {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--bg);
+    color: var(--text);
 }
 
 .mock-kpi__card-value--up {
@@ -2178,7 +2178,7 @@ footer {
 .mock-kpi__bar {
     flex: 1;
     max-width: 20px;
-    background: var(--bg);
+    background: var(--text);
     border-radius: 2px 2px 0 0;
 }
 
