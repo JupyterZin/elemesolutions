@@ -180,6 +180,12 @@
               Não há controlo de versões, e a continuidade operacional depende de
               uma pessoa saber como o ficheiro "realmente" funciona.
             </p>
+            <button class="tryout-btn" data-modal="tryout-1" aria-label="Ver exemplo interactivity">
+              Experimentar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </button>
           </article>
 
           <!-- Card 2 -->
@@ -201,8 +207,14 @@
               ferramentas de front-office consome tempo e gera erros. Dados
               entram errados, não chegam a tempo, ou existem em formatos
               incompatíveis. Os seus operacionais estão a fazer trabalho de
-              secretária quando deveriam estar a gerir.
+              secrétaire quando deveriam estar a gerir.
             </p>
+            <button class="tryout-btn" data-modal="tryout-2" aria-label="Ver exemplo interactivity">
+              Experimentar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </button>
           </article>
 
           <!-- Card 3 -->
@@ -223,6 +235,12 @@
               produção? Onde estão os gargalos? Sem respostas, continua a
               otimizar no escuro.
             </p>
+            <button class="tryout-btn" data-modal="tryout-3" aria-label="Ver exemplo interactivity">
+              Experimentar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </button>
           </article>
 
         </div><!-- /.problem-cards -->
@@ -750,6 +768,356 @@
     </div>
   </footer>
 
+
+  <!-- Tryout Modal -->
+  <div id="tryout-modal-overlay" class="tryout-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="tryout-modal-title">
+    <div id="tryout-modal-content" class="tryout-modal">
+      <button id="tryout-modal-close" class="tryout-modal__close" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="tryout-modal__body">
+        <h2 id="tryout-modal-title" class="tryout-modal__title"></h2>
+        <p id="tryout-modal-context" class="tryout-modal__context"></p>
+        <div id="tryout-modal-comparison" class="tryout-modal__comparison"></div>
+        <p id="tryout-modal-insight" class="tryout-modal__insight"></p>
+        <a id="tryout-modal-cta" href="#contacto" class="tryout-modal__cta">
+          Falar Connosco
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden mock content for modals -->
+  <div style="display: none;">
+
+    <!-- Modal 1: Spreadsheet Antes -->
+    <div id="mock-spreadsheet">
+      <div class="mock-spreadsheet">
+        <div class="mock-spreadsheet__header">Sousa & Filhos, Metalurgia Lda. — Previsão de Produção Março 2026</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Qtd Prevista</th>
+              <th>Qtd Real</th>
+              <th>Desvio</th>
+              <th>Notas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Perfil Aço 40mm</td>
+              <td>1.200</td>
+              <td>980</td>
+              <td class="mock-spreadsheet__cell--warning">-18%</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Chapa Galv. 2mm</td>
+              <td>850</td>
+              <td class="mock-spreadsheet__cell--error">#REF!</td>
+              <td class="mock-spreadsheet__cell--error">ERRO</td>
+              <td class="mock-spreadsheet__comment">Pedro, confirma este valor!</td>
+            </tr>
+            <tr>
+              <td>Tubo Inox 25mm</td>
+              <td>450</td>
+              <td>445</td>
+              <td class="mock-spreadsheet__cell--ok">-1%</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Perfil Aço 60mm</td>
+              <td>600</td>
+              <td>420</td>
+              <td class="mock-spreadsheet__cell--danger">-30%</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Flange DN50</td>
+              <td>320</td>
+              <td>310</td>
+              <td class="mock-spreadsheet__cell--ok">-3%</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Chapa Aço 3mm</td>
+              <td>1.500</td>
+              <td>1.100</td>
+              <td class="mock-spreadsheet__cell--danger">-27%</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="mock-spreadsheet__footer">Última atualização: há 3 dias (por email)</div>
+      </div>
+    </div>
+
+    <!-- Modal 1: Dashboard Depois -->
+    <div id="mock-dashboard">
+      <div class="mock-dashboard">
+        <div class="mock-dashboard__header">
+          <span>Previsão de Produção — Sousa & Filhos</span>
+          <div class="mock-dashboard__live">
+            <span class="mock-dashboard__live-dot"></span>
+            <span>Atualizado: há 2 min</span>
+          </div>
+        </div>
+        <table class="mock-dashboard__table">
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Previsto</th>
+              <th>Real</th>
+              <th>Desvio</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Perfil Aço 40mm</td>
+              <td>1.200</td>
+              <td>1.185</td>
+              <td>-1%</td>
+              <td><span class="mock-dashboard__status"><span class="mock-dashboard__dot mock-dashboard__dot--green"></span> OK</span></td>
+            </tr>
+            <tr>
+              <td>Chapa Galv. 2mm</td>
+              <td>850</td>
+              <td>842</td>
+              <td>-1%</td>
+              <td><span class="mock-dashboard__status"><span class="mock-dashboard__dot mock-dashboard__dot--green"></span> OK</span></td>
+            </tr>
+            <tr>
+              <td>Tubo Inox 25mm</td>
+              <td>450</td>
+              <td>447</td>
+              <td>-1%</td>
+              <td><span class="mock-dashboard__status"><span class="mock-dashboard__dot mock-dashboard__dot--green"></span> OK</span></td>
+            </tr>
+            <tr>
+              <td>Perfil Aço 60mm</td>
+              <td>600</td>
+              <td>588</td>
+              <td>-2%</td>
+              <td><span class="mock-dashboard__status"><span class="mock-dashboard__dot mock-dashboard__dot--yellow"></span> Atenção</span></td>
+            </tr>
+            <tr>
+              <td>Flange DN50</td>
+              <td>320</td>
+              <td>318</td>
+              <td>-1%</td>
+              <td><span class="mock-dashboard__status"><span class="mock-dashboard__dot mock-dashboard__dot--green"></span> OK</span></td>
+            </tr>
+            <tr>
+              <td>Chapa Aço 3mm</td>
+              <td>1.500</td>
+              <td>1.485</td>
+              <td>-1%</td>
+              <td><span class="mock-dashboard__status"><span class="mock-dashboard__dot mock-dashboard__dot--green"></span> OK</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="mock-dashboard__chart">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 0.6rem; color: #666;">Previsão vs Real (últimas 6 sem.)</span>
+            <span class="mock-dashboard__badge">3 alertas ativos</span>
+          </div>
+          <div class="mock-dashboard__bars">
+            <div class="mock-dashboard__bar" style="height: 95%"></div>
+            <div class="mock-dashboard__bar" style="height: 88%"></div>
+            <div class="mock-dashboard__bar" style="height: 92%"></div>
+            <div class="mock-dashboard__bar" style="height: 85%"></div>
+            <div class="mock-dashboard__bar" style="height: 97%"></div>
+            <div class="mock-dashboard__bar" style="height: 99%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Workflow Manual Antes -->
+    <div id="mock-workflow-manual">
+      <div class="mock-workflow">
+        <div class="mock-workflow__title">Ribeiro Plásticos Industriais — Processo Atual</div>
+        <div class="mock-workflow__step mock-workflow__step--error">
+          <div class="mock-workflow__step-icon mock-workflow__step-icon--manual">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <span class="mock-workflow__step-text">Encomenda recebida por email</span>
+          <span class="mock-workflow__step-time mock-workflow__step-time--bad">~2 min</span>
+        </div>
+        <div class="mock-workflow__arrow mock-workflow__arrow--bad">↓</div>
+        <div class="mock-workflow__step mock-workflow__step--error">
+          <div class="mock-workflow__step-icon mock-workflow__step-icon--manual">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <span class="mock-workflow__step-text">Copiar dados para Excel</span>
+          <span class="mock-workflow__step-time mock-workflow__step-time--bad">~15 min</span>
+        </div>
+        <div class="mock-workflow__arrow mock-workflow__arrow--bad">↓</div>
+        <div class="mock-workflow__step mock-workflow__step--error">
+          <div class="mock-workflow__step-icon mock-workflow__step-icon--manual">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <span class="mock-workflow__step-text">Inserir manualmente no ERP</span>
+          <span class="mock-workflow__step-time mock-workflow__step-time--bad">~20 min</span>
+        </div>
+        <div class="mock-workflow__arrow mock-workflow__arrow--bad">↓</div>
+        <div class="mock-workflow__step mock-workflow__step--error">
+          <div class="mock-workflow__step-icon mock-workflow__step-icon--manual">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <span class="mock-workflow__step-text">Atualizar produção (outro Excel)</span>
+          <span class="mock-workflow__step-time mock-workflow__step-time--bad">~25 min</span>
+        </div>
+        <div class="mock-workflow__arrow mock-workflow__arrow--bad">↓</div>
+        <div class="mock-workflow__step mock-workflow__step--error">
+          <div class="mock-workflow__step-icon mock-workflow__step-icon--manual">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <span class="mock-workflow__step-text">Enviar fatura (manual)</span>
+          <span class="mock-workflow__step-time mock-workflow__step-time--bad">~10 min</span>
+        </div>
+        <div class="mock-workflow__total mock-workflow__total--bad">
+          <span>Tempo total diário:</span>
+          <span>2h 45min</span>
+        </div>
+        <div class="mock-workflow__error-note">
+          <strong>Erros detetados:</strong> "500 un." → "5000 un." (erro de digitação) | Fatura com preço desatualizado
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Workflow Auto Depois -->
+    <div id="mock-workflow-auto">
+      <div class="mock-workflow">
+        <div class="mock-workflow__title">Ribeiro Plásticos Industriais — Com Eleme Solutions</div>
+        <div class="mock-workflow__step">
+          <div class="mock-workflow__step-icon mock-workflow__step-icon--auto">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="mock-workflow__step-text">Encomenda entrada no portal</span>
+          <span class="mock-workflow__step-time mock-workflow__step-time--good">Automático</span>
+        </div>
+        <div class="mock-workflow__arrow mock-workflow__arrow--good">↓ ✓</div>
+        <div class="mock-workflow__step">
+          <div class="mock-workflow__step-icon mock-workflow__step-icon--auto">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <span class="mock-workflow__step-text">ERP atualizado automaticamente</span>
+          <span class="mock-workflow__step-time mock-workflow__step-time--good">&lt; 1 seg</span>
+        </div>
+        <div class="mock-workflow__arrow mock-workflow__arrow--good">↓ ✓</div>
+        <div class="mock-workflow__step">
+          <div class="mock-workflow__step-icon mock-workflow__step-icon--auto">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <span class="mock-workflow__step-text">Produção sincronizada</span>
+          <span class="mock-workflow__step-time mock-workflow__step-time--good">Automático</span>
+        </div>
+        <div class="mock-workflow__arrow mock-workflow__arrow--good">↓ ✓</div>
+        <div class="mock-workflow__step">
+          <div class="mock-workflow__step-icon mock-workflow__step-icon--auto">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <span class="mock-workflow__step-text">Fatura gerada automaticamente</span>
+          <span class="mock-workflow__step-time mock-workflow__step-time--good">Automático</span>
+        </div>
+        <div class="mock-workflow__total mock-workflow__total--good">
+          <span>Tempo diário:</span>
+          <span>15 min — apenas validação</span>
+        </div>
+        <div style="margin-top: 0.5rem; padding: 0.4rem; background: #d4edda; border-radius: 4px; font-size: 0.6rem; color: #155724; text-align: center;">
+          Taxa de erro: <strong>&lt; 1%</strong> (validação automática)
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Documents Antes -->
+    <div id="mock-documents">
+      <div class="mock-documents">
+        <div class="mock-documents__title">Costa & Martins Alimentar, Lda. — Dados de Custos</div>
+        <div class="mock-documents__files">
+          <div class="mock-documents__file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Relatório_Custos_Fev_v3_FINAL_v2.pdf
+          </div>
+          <div class="mock-documents__file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            Margens_2026_backup_pedro.xlsx
+          </div>
+          <div class="mock-documents__file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            "Segue os números atualizados (acho)"
+          </div>
+        </div>
+        <div class="mock-documents__email">
+          <span class="mock-documents__email-from">De: pedro@costamartins.pt</span><br>
+          Assunto: RE: custos fevereiro<br><br>
+          Segue em anexo os números atualizados (acho). O Carlos ainda não
+          confirmou os valores da linha 3, usa os do mês passado como referência.
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <span class="mock-documents__note">Perguntar ao Carlos os valores da linha 3</span>
+        </div>
+        <div class="mock-documents__question">
+          <span class="mock-documents__question-mark">?</span>
+          <span>Margem real da Linha A?</span>
+          <span class="mock-documents__unknown">???</span>
+        </div>
+        <div style="text-align: center; margin-top: 0.75rem;">
+          <span class="mock-documents__unknown">Custo/unidade: ???</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: KPI Dashboard Depois -->
+    <div id="mock-kpi-dashboard">
+      <div class="mock-kpi">
+        <div class="mock-kpi__header">Dashboard de Custos — Costa & Martins</div>
+        <div class="mock-kpi__cards">
+          <div class="mock-kpi__card">
+            <div class="mock-kpi__card-value mock-kpi__card-value--up">34.2%</div>
+            <div class="mock-kpi__card-label">Margem Bruta Linha A</div>
+          </div>
+          <div class="mock-kpi__card">
+            <div class="mock-kpi__card-value">€2.47</div>
+            <div class="mock-kpi__card-label">Custo/Unidade Médio</div>
+          </div>
+          <div class="mock-kpi__card">
+            <div class="mock-kpi__card-value mock-kpi__card-value--warn">87%</div>
+            <div class="mock-kpi__card-label">Eficiência Produção</div>
+          </div>
+        </div>
+        <div class="mock-kpi__chart">
+          <div style="font-size: 0.6rem; color: #666; margin-bottom: 0.5rem;">Margem por Linha de Produção</div>
+          <div class="mock-kpi__bars">
+            <div class="mock-kpi__bar" style="height: 85%"></div>
+            <div class="mock-kpi__bar" style="height: 72%"></div>
+            <div class="mock-kpi__bar mock-kpi__bar--alert" style="height: 45%"></div>
+            <div class="mock-kpi__bar" style="height: 68%"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.55rem; color: #888; margin-top: 0.25rem;">
+            <span>Linha A</span>
+            <span>Linha B</span>
+            <span>Linha C</span>
+            <span>Linha D</span>
+          </div>
+        </div>
+        <div class="mock-kpi__alert">
+          ⚠ Alerta: Linha C abaixo do objetivo de margem (&lt; 20%)
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end hidden mock content -->
 
   <script src="js/main.js" defer></script>
 </body>

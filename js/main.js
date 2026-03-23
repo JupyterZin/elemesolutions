@@ -4,358 +4,519 @@
             hero canvas, smooth scroll, contact form
    ============================================================ */
 
-'use strict';
+"use strict";
 
 /* ----------------------------------------------------------
    1. NAVBAR — transparent → solid on scroll
    ---------------------------------------------------------- */
 (function initNavbar() {
-  const navbar = document.getElementById('navbar');
-  if (!navbar) return;
+    const navbar = document.getElementById("navbar");
+    if (!navbar) return;
 
-  const hero = document.getElementById('hero');
+    const hero = document.getElementById("hero");
 
-  const observer = new IntersectionObserver(
-    function(entries) {
-      const heroVisible = entries[0].isIntersecting;
-      navbar.classList.toggle('scrolled', !heroVisible);
-    },
-    { threshold: 0.1, rootMargin: '-72px 0px 0px 0px' }
-  );
+    const observer = new IntersectionObserver(
+        function (entries) {
+            const heroVisible = entries[0].isIntersecting;
+            navbar.classList.toggle("scrolled", !heroVisible);
+        },
+        { threshold: 0.1, rootMargin: "-72px 0px 0px 0px" },
+    );
 
-  if (hero) {
-    observer.observe(hero);
-  }
-
-  // Fallback scroll listener for older browsers
-  window.addEventListener('scroll', function() {
-    if (!('IntersectionObserver' in window)) {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    if (hero) {
+        observer.observe(hero);
     }
-  }, { passive: true });
-})();
 
+    // Fallback scroll listener for older browsers
+    window.addEventListener(
+        "scroll",
+        function () {
+            if (!("IntersectionObserver" in window)) {
+                navbar.classList.toggle("scrolled", window.scrollY > 60);
+            }
+        },
+        { passive: true },
+    );
+})();
 
 /* ----------------------------------------------------------
    2. MOBILE MENU — hamburger toggle
    ---------------------------------------------------------- */
 (function initMobileMenu() {
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobile-nav');
-  if (!hamburger || !mobileNav) return;
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobile-nav");
+    if (!hamburger || !mobileNav) return;
 
-  const mobileLinks = mobileNav.querySelectorAll('a');
+    const mobileLinks = mobileNav.querySelectorAll("a");
 
-  function openMenu() {
-    hamburger.classList.add('open');
-    mobileNav.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    hamburger.setAttribute('aria-expanded', 'true');
-  }
+    function openMenu() {
+        hamburger.classList.add("open");
+        mobileNav.classList.add("open");
+        document.body.style.overflow = "hidden";
+        hamburger.setAttribute("aria-expanded", "true");
+    }
 
-  function closeMenu() {
-    hamburger.classList.remove('open');
-    mobileNav.classList.remove('open');
-    document.body.style.overflow = '';
-    hamburger.setAttribute('aria-expanded', 'false');
-  }
+    function closeMenu() {
+        hamburger.classList.remove("open");
+        mobileNav.classList.remove("open");
+        document.body.style.overflow = "";
+        hamburger.setAttribute("aria-expanded", "false");
+    }
 
-  hamburger.addEventListener('click', function() {
-    const isOpen = hamburger.classList.contains('open');
-    isOpen ? closeMenu() : openMenu();
-  });
+    hamburger.addEventListener("click", function () {
+        const isOpen = hamburger.classList.contains("open");
+        isOpen ? closeMenu() : openMenu();
+    });
 
-  mobileLinks.forEach(function(link) {
-    link.addEventListener('click', closeMenu);
-  });
+    mobileLinks.forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+    });
 
-  // Close on ESC
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeMenu();
-  });
+    // Close on ESC
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeMenu();
+    });
 })();
-
 
 /* ----------------------------------------------------------
    3. SCROLL ANIMATIONS — IntersectionObserver fade-up
    ---------------------------------------------------------- */
 (function initScrollAnimations() {
-  if (!('IntersectionObserver' in window)) {
-    // Fallback: show everything immediately
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-      el.classList.add('visible');
+    if (!("IntersectionObserver" in window)) {
+        // Fallback: show everything immediately
+        document.querySelectorAll(".fade-up").forEach(function (el) {
+            el.classList.add("visible");
+        });
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+    );
+
+    document.querySelectorAll(".fade-up").forEach(function (el) {
+        observer.observe(el);
     });
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  document.querySelectorAll('.fade-up').forEach(function(el) {
-    observer.observe(el);
-  });
 })();
-
 
 /* ----------------------------------------------------------
    4. SMOOTH SCROLL — nav links
    ---------------------------------------------------------- */
 (function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener("click", function (e) {
+            const target = document.querySelector(this.getAttribute("href"));
+            if (!target) return;
+            e.preventDefault();
 
-      const navHeight = parseInt(
-        getComputedStyle(document.documentElement)
-          .getPropertyValue('--nav-height')
-      ) || 72;
+            const navHeight =
+                parseInt(
+                    getComputedStyle(document.documentElement).getPropertyValue(
+                        "--nav-height",
+                    ),
+                ) || 72;
 
-      const targetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+            const targetTop =
+                target.getBoundingClientRect().top +
+                window.pageYOffset -
+                navHeight;
 
-      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+            window.scrollTo({ top: targetTop, behavior: "smooth" });
+        });
     });
-  });
 })();
-
 
 /* ----------------------------------------------------------
    5. HERO CANVAS — animated data grid / network
    ---------------------------------------------------------- */
 (function initHeroCanvas() {
-  const canvas = document.getElementById('hero-canvas');
-  if (!canvas) return;
+    const canvas = document.getElementById("hero-canvas");
+    if (!canvas) return;
 
-  // Respect reduced motion
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    canvas.style.display = 'none';
-    return;
-  }
+    // Respect reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        canvas.style.display = "none";
+        return;
+    }
 
-  const ctx = canvas.getContext('2d');
-  const ORANGE = '#F47B20';
-  const ORANGE_DIM = 'rgba(244, 123, 32, ';
-  const BLUE_DIM = 'rgba(37, 99, 235, ';
+    const ctx = canvas.getContext("2d");
+    const ORANGE = "#F47B20";
+    const ORANGE_DIM = "rgba(244, 123, 32, ";
+    const BLUE_DIM = "rgba(37, 99, 235, ";
 
-  let width, height, animId;
-  let nodes = [];
-  let lines = [];
+    let width, height, animId;
+    let nodes = [];
+    let lines = [];
 
-  const NODE_COUNT_BASE = 45;
+    const NODE_COUNT_BASE = 45;
 
-  function resize() {
-    width  = canvas.offsetWidth;
-    height = canvas.offsetHeight;
-    canvas.width  = width;
-    canvas.height = height;
-    initNodes();
-  }
+    function resize() {
+        width = canvas.offsetWidth;
+        height = canvas.offsetHeight;
+        canvas.width = width;
+        canvas.height = height;
+        initNodes();
+    }
 
-  function rand(min, max) {
-    return Math.random() * (max - min) + min;
-  }
+    function rand(min, max) {
+        return Math.random() * (max - min) + min;
+    }
 
-  function initNodes() {
-    const count = Math.floor(NODE_COUNT_BASE * (width / 1440));
-    nodes = Array.from({ length: Math.max(16, count) }, function() {
-      return {
-        x:  rand(0, width),
-        y:  rand(0, height),
-        vx: rand(-0.18, 0.18),
-        vy: rand(-0.12, 0.12),
-        r:  rand(1.5, 3.0),
-        opacity: rand(0.4, 0.9)
-      };
-    });
-  }
+    function initNodes() {
+        const count = Math.floor(NODE_COUNT_BASE * (width / 1440));
+        nodes = Array.from({ length: Math.max(16, count) }, function () {
+            return {
+                x: rand(0, width),
+                y: rand(0, height),
+                vx: rand(-0.18, 0.18),
+                vy: rand(-0.12, 0.12),
+                r: rand(1.5, 3.0),
+                opacity: rand(0.4, 0.9),
+            };
+        });
+    }
 
-  function updateNodes() {
-    nodes.forEach(function(n) {
-      n.x += n.vx;
-      n.y += n.vy;
-      if (n.x < -20)     { n.x = width  + 20; }
-      if (n.x > width + 20)  { n.x = -20; }
-      if (n.y < -20)     { n.y = height + 20; }
-      if (n.y > height + 20) { n.y = -20; }
-    });
-  }
+    function updateNodes() {
+        nodes.forEach(function (n) {
+            n.x += n.vx;
+            n.y += n.vy;
+            if (n.x < -20) {
+                n.x = width + 20;
+            }
+            if (n.x > width + 20) {
+                n.x = -20;
+            }
+            if (n.y < -20) {
+                n.y = height + 20;
+            }
+            if (n.y > height + 20) {
+                n.y = -20;
+            }
+        });
+    }
 
-  function buildLines() {
-    lines = [];
-    const MAX_DIST = Math.min(width * 0.18, 240);
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < MAX_DIST) {
-          lines.push({ a: i, b: j, dist: dist, max: MAX_DIST });
+    function buildLines() {
+        lines = [];
+        const MAX_DIST = Math.min(width * 0.18, 240);
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const dx = nodes[i].x - nodes[j].x;
+                const dy = nodes[i].y - nodes[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < MAX_DIST) {
+                    lines.push({ a: i, b: j, dist: dist, max: MAX_DIST });
+                }
+            }
         }
-      }
     }
-  }
 
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
+    function draw() {
+        ctx.clearRect(0, 0, width, height);
 
-    buildLines();
+        buildLines();
 
-    // Draw connections (mix of orange and blue lines)
-    lines.forEach(function(l) {
-      const alpha = (1 - l.dist / l.max) * 0.45;
-      const colorDim = (l.a + l.b) % 3 === 0 ? BLUE_DIM : ORANGE_DIM;
-      ctx.beginPath();
-      ctx.strokeStyle = colorDim + alpha + ')';
-      ctx.lineWidth = 0.7;
-      ctx.moveTo(nodes[l.a].x, nodes[l.a].y);
-      ctx.lineTo(nodes[l.b].x, nodes[l.b].y);
-      ctx.stroke();
+        // Draw connections (mix of orange and blue lines)
+        lines.forEach(function (l) {
+            const alpha = (1 - l.dist / l.max) * 0.45;
+            const colorDim = (l.a + l.b) % 3 === 0 ? BLUE_DIM : ORANGE_DIM;
+            ctx.beginPath();
+            ctx.strokeStyle = colorDim + alpha + ")";
+            ctx.lineWidth = 0.7;
+            ctx.moveTo(nodes[l.a].x, nodes[l.a].y);
+            ctx.lineTo(nodes[l.b].x, nodes[l.b].y);
+            ctx.stroke();
+        });
+
+        // Draw nodes (mix of orange and blue dots)
+        nodes.forEach(function (n, i) {
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            const colorDim = i % 3 === 0 ? BLUE_DIM : ORANGE_DIM;
+            ctx.fillStyle = colorDim + n.opacity + ")";
+            ctx.fill();
+        });
+
+        // Subtle grid overlay
+        drawGrid();
+
+        updateNodes();
+        animId = requestAnimationFrame(draw);
+    }
+
+    function drawGrid() {
+        const spacing = 80;
+        ctx.strokeStyle = "rgba(37, 99, 235, 0.04)";
+        ctx.lineWidth = 1;
+
+        for (let x = 0; x <= width; x += spacing) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, height);
+            ctx.stroke();
+        }
+
+        for (let y = 0; y <= height; y += spacing) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(width, y);
+            ctx.stroke();
+        }
+    }
+
+    // Initialize
+    resize();
+    draw();
+
+    // Debounced resize
+    let resizeTimer;
+    window.addEventListener(
+        "resize",
+        function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function () {
+                cancelAnimationFrame(animId);
+                resize();
+                draw();
+            }, 200);
+        },
+        { passive: true },
+    );
+
+    // Pause when tab not visible
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            cancelAnimationFrame(animId);
+        } else {
+            draw();
+        }
     });
-
-    // Draw nodes (mix of orange and blue dots)
-    nodes.forEach(function(n, i) {
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-      const colorDim = i % 3 === 0 ? BLUE_DIM : ORANGE_DIM;
-      ctx.fillStyle = colorDim + n.opacity + ')';
-      ctx.fill();
-    });
-
-    // Subtle grid overlay
-    drawGrid();
-
-    updateNodes();
-    animId = requestAnimationFrame(draw);
-  }
-
-  function drawGrid() {
-    const spacing = 80;
-    ctx.strokeStyle = 'rgba(37, 99, 235, 0.04)';
-    ctx.lineWidth = 1;
-
-    for (let x = 0; x <= width; x += spacing) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, height);
-      ctx.stroke();
-    }
-
-    for (let y = 0; y <= height; y += spacing) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(width, y);
-      ctx.stroke();
-    }
-  }
-
-  // Initialize
-  resize();
-  draw();
-
-  // Debounced resize
-  let resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
-      cancelAnimationFrame(animId);
-      resize();
-      draw();
-    }, 200);
-  }, { passive: true });
-
-  // Pause when tab not visible
-  document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-      cancelAnimationFrame(animId);
-    } else {
-      draw();
-    }
-  });
 })();
 
+/* ----------------------------------------------------------
+   8. TRYOUT MODALS — open/close logic
+   ---------------------------------------------------------- */
+(function initTryoutModals() {
+    const modalOverlay = document.getElementById("tryout-modal-overlay");
+    const modalContent = document.getElementById("tryout-modal-content");
+    const modalClose = document.getElementById("tryout-modal-close");
+    const modalTitle = document.getElementById("tryout-modal-title");
+    const modalContext = document.getElementById("tryout-modal-context");
+    const modalComparison = document.getElementById("tryout-modal-comparison");
+    const modalInsight = document.getElementById("tryout-modal-insight");
+    const modalCta = document.getElementById("tryout-modal-cta");
+
+    if (!modalOverlay || !modalContent) return;
+
+    // Modal data
+    const modals = {
+        "tryout-1": {
+            title: "Folhas de Cálculo a Controlar Processos Críticos",
+            context:
+                "Uma empresa industrial com 45 colaboradores gere toda a previsão de produção em Excel.",
+            insight:
+                "De 5 ficheiros espalhados por email para uma fonte única de verdade. Desvio de previsão reduzido de 30% para menos de 8%.",
+            antes: document.getElementById("mock-spreadsheet").innerHTML,
+            depois: document.getElementById("mock-dashboard").innerHTML,
+        },
+        "tryout-2": {
+            title: "Introdução Manual de Dados Entre Sistemas",
+            context:
+                "Uma fábrica de componentes plásticos perde 2-3 horas/dia a copiar dados entre sistemas.",
+            insight:
+                "O mesmo processo, sem copiar um único valor à mão. 2h45 por dia devolvidas à equipa operacional.",
+            antes: document.getElementById("mock-workflow-manual").innerHTML,
+            depois: document.getElementById("mock-workflow-auto").innerHTML,
+        },
+        "tryout-3": {
+            title: "Zero Visibilidade Sobre Custos Reais",
+            context:
+                "O diretor de uma empresa alimentar demora 4 horas por semana a montar relatórios de custos.",
+            insight:
+                "De 4 horas a consolidar PDFs para respostas instantâneas. Decisões baseadas em dados, não em impressões.",
+            antes: document.getElementById("mock-documents").innerHTML,
+            depois: document.getElementById("mock-kpi-dashboard").innerHTML,
+        },
+    };
+
+    // Open modal
+    function openModal(id) {
+        const data = modals[id];
+        if (!data) return;
+
+        modalTitle.textContent = data.title;
+        modalContext.textContent = data.context;
+        modalInsight.textContent = data.insight;
+
+        modalComparison.innerHTML =
+            '<div class="tryout-modal__side tryout-modal__side--antes">' +
+            '<div class="tryout-modal__label">Antes</div>' +
+            '<div class="tryout-modal__visual">' +
+            data.antes +
+            "</div>" +
+            "</div>" +
+            '<div class="tryout-modal__side tryout-modal__side--depois">' +
+            '<div class="tryout-modal__label">Depois</div>' +
+            '<div class="tryout-modal__visual">' +
+            data.depois +
+            "</div>" +
+            "</div>";
+
+        modalOverlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+
+        // Focus close button
+        setTimeout(function () {
+            modalClose.focus();
+        }, 100);
+    }
+
+    // Close modal
+    function closeModal() {
+        modalOverlay.classList.remove("open");
+        document.body.style.overflow = "";
+    }
+
+    // Event listeners for trigger buttons
+    document.querySelectorAll(".tryout-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            const modalId = this.getAttribute("data-modal");
+            openModal(modalId);
+        });
+    });
+
+    // Close button
+    if (modalClose) {
+        modalClose.addEventListener("click", closeModal);
+    }
+
+    // Backdrop click
+    modalOverlay.addEventListener("click", function (e) {
+        if (e.target === modalOverlay) {
+            closeModal();
+        }
+    });
+
+    // ESC key
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modalOverlay.classList.contains("open")) {
+            closeModal();
+        }
+    });
+
+    // Focus trap
+    modalOverlay.addEventListener("keydown", function (e) {
+        if (e.key !== "Tab") return;
+
+        const focusable = modalContent.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        );
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+            if (document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            }
+        } else {
+            if (document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+    });
+})();
 
 /* ----------------------------------------------------------
    6. CONTACT FORM — mailto fallback
    ---------------------------------------------------------- */
 (function initContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
+    const form = document.getElementById("contact-form");
+    if (!form) return;
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    const name    = form.querySelector('#form-name')?.value.trim()    || '';
-    const email   = form.querySelector('#form-email')?.value.trim()   || '';
-    const message = form.querySelector('#form-message')?.value.trim() || '';
+        const name = form.querySelector("#form-name")?.value.trim() || "";
+        const email = form.querySelector("#form-email")?.value.trim() || "";
+        const message = form.querySelector("#form-message")?.value.trim() || "";
 
-    if (!name || !email || !message) {
-      showFormMessage('Por favor preencha todos os campos.', 'error');
-      return;
+        if (!name || !email || !message) {
+            showFormMessage("Por favor preencha todos os campos.", "error");
+            return;
+        }
+
+        const subject = encodeURIComponent("Pedido de contacto — " + name);
+        const body = encodeURIComponent(
+            "Nome: " +
+                name +
+                "\n" +
+                "Email: " +
+                email +
+                "\n\n" +
+                "Mensagem:\n" +
+                message,
+        );
+
+        window.location.href =
+            "mailto:lucasgomes@elemesolutions.pt?subject=" +
+            subject +
+            "&body=" +
+            body;
+
+        showFormMessage("A abrir o seu cliente de email...", "success");
+    });
+
+    function showFormMessage(text, type) {
+        let msg = form.querySelector(".form-message");
+        if (!msg) {
+            msg = document.createElement("p");
+            msg.className = "form-message";
+            form.appendChild(msg);
+        }
+        msg.textContent = text;
+        msg.style.cssText =
+            "margin-top: 1rem; font-size: 0.875rem; padding: 0.75rem 1rem; border-radius: 4px; " +
+            (type === "success"
+                ? "color: #F47B20; background: rgba(244,123,32,0.1); border: 1px solid rgba(244,123,32,0.3);"
+                : "color: #e05555; background: rgba(224,85,85,0.1); border: 1px solid rgba(224,85,85,0.3);");
     }
-
-    const subject = encodeURIComponent('Pedido de contacto — ' + name);
-    const body    = encodeURIComponent(
-      'Nome: '    + name    + '\n' +
-      'Email: '   + email   + '\n\n' +
-      'Mensagem:\n' + message
-    );
-
-    window.location.href =
-      'mailto:lucasgomes@elemesolutions.pt?subject=' + subject + '&body=' + body;
-
-    showFormMessage('A abrir o seu cliente de email...', 'success');
-  });
-
-  function showFormMessage(text, type) {
-    let msg = form.querySelector('.form-message');
-    if (!msg) {
-      msg = document.createElement('p');
-      msg.className = 'form-message';
-      form.appendChild(msg);
-    }
-    msg.textContent = text;
-    msg.style.cssText =
-      'margin-top: 1rem; font-size: 0.875rem; padding: 0.75rem 1rem; border-radius: 4px; ' +
-      (type === 'success'
-        ? 'color: #F47B20; background: rgba(244,123,32,0.1); border: 1px solid rgba(244,123,32,0.3);'
-        : 'color: #e05555; background: rgba(224,85,85,0.1); border: 1px solid rgba(224,85,85,0.3);');
-  }
 })();
-
 
 /* ----------------------------------------------------------
    7. ACTIVE NAV LINK — highlight based on scroll position
    ---------------------------------------------------------- */
 (function initActiveNav() {
-  const sections  = document.querySelectorAll('section[id]');
-  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
-  if (!sections.length || !navAnchors.length) return;
+    const sections = document.querySelectorAll("section[id]");
+    const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+    if (!sections.length || !navAnchors.length) return;
 
-  const observer = new IntersectionObserver(
-    function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navAnchors.forEach(function(a) {
-            a.style.color = a.getAttribute('href') === '#' + id
-              ? 'var(--gold)'
-              : '';
-          });
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
+    const observer = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute("id");
+                    navAnchors.forEach(function (a) {
+                        a.style.color =
+                            a.getAttribute("href") === "#" + id
+                                ? "var(--gold)"
+                                : "";
+                    });
+                }
+            });
+        },
+        { threshold: 0.4 },
+    );
 
-  sections.forEach(function(s) { observer.observe(s); });
+    sections.forEach(function (s) {
+        observer.observe(s);
+    });
 })();
